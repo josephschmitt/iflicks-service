@@ -12,15 +12,30 @@ app.get('/', function (req, res) {
 });
 
 app.get('/scan', async function (req, res) {
-  const apps = Object.keys(config.get('scan-downloads')).join(',');
-  const resp = await scanApps(apps);
-  res.send(resp.join(' '));
+  try {
+    const apps = Object.keys(config.get('scan-downloads')).join(',');
+    const resp = await scanApps(apps);
+    res.send(resp.join(' '));
+  } catch (e) {
+    console.error(e.message);
+    res.status(500).send(e.message);
+  }
 });
 
 app.get('/scan/:app', async function (req, res) {
-  const resp = await scan(req.params.app);
-  res.send(resp);
+  try {
+    const resp = await scan(req.params.app);
+    res.send(resp);
+  } catch (e) {
+    console.error(e.message);
+    res.status(500).send(e.message);
+  }
 });
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
 
 app.listen(port, function () {
   console.log("Listening on " + port);
