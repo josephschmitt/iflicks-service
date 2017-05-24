@@ -1,0 +1,13 @@
+{
+  "service": {
+    "name": "iFlicks Helper",
+    "description": "The nodejs.org example web server.",
+    "script": "service.js",
+    "template": "/workspace/node-linux/lib/templates/systemv/debian"
+  },
+  "server": {
+    "port": 3000
+  },
+  "scan-downloads": {
+  }
+}

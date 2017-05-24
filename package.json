@@ -1,0 +1,25 @@
+{
+  "name": "iflicks-service",
+  "version": "0.0.1",
+  "description": "Node API service to communicate with the iFlicks Mac app.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src/ --out-dir dist/",
+    "start": "babel-node ./src/install.js",
+    "stop": "babel-node ./src/uninstall.js",
+    "serve": "babel-node ./src/service.js",
+    "scan": "scan-downloads",
+    "postinstall": "npm run build"
+  },
+  "keywords": [],
+  "author": "Joe Schmitt",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
+    "config": "^1.26.1",
+    "express": "^4.15.3",
+    "node-mac": "^0.1.8",
+    "scan-downloads": "github:josephschmitt/scan-downloads"
+  }
+}
