@@ -1,7 +1,5 @@
 import config from 'config';
-import {exec} from 'child_process';
 import express from "express";
-import path from 'path';
 import {scan, scanApps} from 'scan-downloads';
 
 const app = express();

@@ -2,18 +2,18 @@ import config from 'config';
 import {Service} from 'node-mac';
 import path from 'path';
 
+const baseConfig = config.util.loadFileConfigs(path.join(process.env.PWD, 'config'))
+
 const svcConfig = config.get('service');
 const svc = new Service(Object.assign(
   {
-    env: {
-      name: "NODE_ENV",
-      value: "production"
+    env: { // Pass config to the service via NODE_CONFIG environment variable
+      name: 'NODE_CONFIG',
+      value: JSON.stringify(baseConfig)
     }
   },
   svcConfig,
-  {
-    script: path.join(__dirname, config.get('service.script'))
-  }
+  {script: path.join(__dirname, config.get('service.script'))}
 ));
 
 // Listen for the "install" event, which indicates the

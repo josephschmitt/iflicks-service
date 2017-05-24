@@ -1,13 +1,13 @@
 {
   "name": "iflicks-service",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Node API service to communicate with the iFlicks Mac app.",
   "main": "src/index.js",
   "scripts": {
     "build": "babel src/ --out-dir dist/",
-    "start": "babel-node ./src/install.js",
-    "stop": "babel-node ./src/uninstall.js",
-    "serve": "babel-node ./src/service.js",
+    "start": "npm run build && node ./dist/install.js",
+    "stop": "npm run build && node ./dist/uninstall.js",
+    "serve": "npm run build && node ./dist/service.js",
     "scan": "scan-downloads",
     "postinstall": "npm run build"
   },
