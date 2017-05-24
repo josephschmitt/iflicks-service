@@ -12,7 +12,7 @@ const svc = new Service(Object.assign(
   },
   svcConfig,
   {
-    script: path.join(__dirname, 'iflicks-service.js')
+    script: path.join(__dirname, config.get('service.script'))
   }
 ));
 
