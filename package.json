@@ -1,6 +1,6 @@
 {
   "name": "iflicks-service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node API service to communicate with the iFlicks Mac app.",
   "main": "src/index.js",
   "scripts": {
